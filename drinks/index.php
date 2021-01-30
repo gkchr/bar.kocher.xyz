@@ -21,13 +21,13 @@
 
     <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="/_global/css/normalize.css">
-    <link rel="stylesheet" href="/_global/css/skeleton.css">
+    <link rel="stylesheet" href="../_global/css/normalize.css">
+    <link rel="stylesheet" href="../_global/css/skeleton.css">
     <link rel="stylesheet" href="css/style.css?v=0.1">
 
     <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="/_global/images/favicon.ico" rel="icon" type="image/x-icon" />
+    <link href="../_global/images/favicon.ico" rel="icon" type="image/x-icon" />
 
 </head>
 
@@ -38,7 +38,7 @@
     <main class="container">
         <div class="row">
             <div class="twelve columns">
-				<h3>DRINKS - Rezeptbuch</h3>
+				<h3>DRINKS - Das Rezeptbuch</h3>
 
 
                 <h4>Drinks:</h4>
@@ -58,6 +58,8 @@
 
                         <h4>Zutaten:</h4>
                         <section class="tiles" id="ings"></section>
+                        <section class="tiles" id="spirits"></section>
+                        <section class="tiles" id="juices"></section>
 
                     </div>
                     <div class="five columns tab recipe">
@@ -72,7 +74,7 @@
                 </div>
 
 
-				<p class="copyright">by <a href="mailto:gerhard@kocher.xyz">Gerhard Kocher</a> 2021. <em>Made with &lt;3</em><br/></p>
+				<p class="copyright">by <a href="mailto:gerhard@kocher.xyz">Gerhard Kocher</a> <?php echo date("Y"); ?>. <em>Made with &lt;3</em><br/></p>
 
                 <span id="clear">zurücksetzen</span>
             </div>
