@@ -1,0 +1,19 @@
+.container {
+	top: 5rem;
+}
+
+.info {
+	font-size: 0.8em;
+}
+
+.copyright {
+	color: #ddd;
+	margin-bottom: 5rem;
+}
+.copyright a {
+	color: #ddd;
+	text-decoration: none;
+}
+.copyright a:hover {
+	text-decoration: underline;
+}
