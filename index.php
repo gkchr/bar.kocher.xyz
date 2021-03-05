@@ -72,6 +72,7 @@ $files = array();
 foreach($folders as $f) {
     if(substr($f, 0, 1) === ".") continue; // skip ., .., .hidden
     if(substr($f, 0, 1) === "_") continue; // skip _
+    if($f === "vendor") continue;
     if(!is_dir($f)) continue;
 
     $title = getPageTitle($f."/index.php");

@@ -1,0 +1,155 @@
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+
+
+
+
+.card {
+    padding: 6px 10px;
+    border: 1px solid #D1D1D1;
+    border-radius: 4px;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    min-height: 5rem;
+}
+
+.card header {
+    flex: 0 1 auto;
+    line-height: 1;
+}
+.card main {
+    padding: 0 10px;
+    flex: 1 1 auto;
+}
+.card footer {
+    flex: 0 1 auto;
+    line-height: 1;
+}
+
+.card h5, .card p {margin-bottom: 0}
+.card .material-icons {color: #222;}
+
+.card + .card {margin-top: 10px}
+
+
+
+
+
+.card input[type="radio"] + span,
+.card input[type="checkbox"] + span {
+    color: black;
+    position: relative;
+    display: inline-block;
+}
+
+.card input[type="radio"] + span::before,
+.card input[type="checkbox"] + span::before {
+    /* Outer Circle of radio button */
+    border: 1px solid #D1D1D1;
+    content: ' ';
+    display: inline-block;
+    margin-right: 5px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4px;
+    transition: border 0.15s ease-in-out;
+    margin-bottom: -.3rem;
+}
+
+.card input[type="radio"] + span::after,
+.card input[type="checkbox"] + span::after {
+    /* Inner Circle of radio button */
+    content: '\2713';
+    position: absolute;
+    left: 0.3rem;
+    top: -0.6rem;
+    font-size: 3rem;
+    font-weight: bold;
+    -webkit-transform: scale(1, 0);
+    transform: scale(1, 0);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+/* When button is active */
+.card input[type="radio"]:checked + span::after,
+.card input[type="checkbox"]:checked + span::after {
+    display: block;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+
+
+
+
+.controls {
+    text-align: center;
+}
+
+.jscolor-picker-wrap {
+    padding-top: 4px;
+}
+/*.jscolor-btn-close {*/
+/*    display: inline-block!important;*/
+/*    padding: 0 30px!important;*/
+/*    height: 38px!important;*/
+/*    color: #555!important;*/
+/*    font-size: 11px;*/
+/*    font-weight: 600;*/
+/*    line-height: 38px;*/
+/*    letter-spacing: .1rem;*/
+/*    text-transform: uppercase;*/
+/*    text-decoration: none;*/
+/*    white-space: nowrap;*/
+/*    border-radius: 4px;*/
+/*    border: 1px solid #bbb;*/
+/*    cursor: pointer;*/
+/*    box-sizing: border-box;*/
+/*}*/
+/*.jscolor-btn-close > span {*/
+/*    line-height: 38px!important;*/
+/*}*/
+
+#warmwhite {
+    background: #efebd8;
+}
+#off {
+    background: black;
+    color: darkred;
+}
