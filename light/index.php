@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="Gerhard Kocher">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
-    <script src="js/jscolor.js"></script>
+    <script src="js/jscolor.min.js"></script>
 
     <!-- Mobile Specific Metas
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -125,7 +125,6 @@
 
 <!-- Scripts
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-<script src="js/jscolor.min.js"></script>
 <script src="js/script.js?v=0.3"></script>
 
 </body>
