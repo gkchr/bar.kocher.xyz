@@ -62,7 +62,7 @@ class BarLightAPI {
             ->setUsername(AUTHORIZATION_USERNAME)
             ->setPassword(AUTHORIZATION_PASSWORD);
         $client->connect($connectionSettings, true);
-        $client->publish($topic, $json, MqttClient::QOS_AT_MOST_ONCE);
+        $client->publish($topic, $json, MqttClient::QOS_AT_LEAST_ONCE);
         $client->disconnect();
     }
 
@@ -73,7 +73,7 @@ class BarLightAPI {
      * @param $light: the light.
      */
     public function turn_off_light($light) {
-        $this->mqtt_control_light($light, ["state" => "off"]);
+        $this->mqtt_control_light($light, ["state" => "off", "effect" => "none"]);
     }
 
 
