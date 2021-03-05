@@ -73,7 +73,7 @@ class BarLightAPI {
      * @param $light: the light.
      */
     public function turn_off_light($light) {
-        $this->mqtt_control_light($light, ["state" => "off", "effect" => "none"]);
+        $this->mqtt_control_light($light, ["state" => "off", "effect" => "none", "timestamp" => date("U")]);
     }
 
 
