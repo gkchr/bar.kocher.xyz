@@ -2,7 +2,7 @@ jscolor.presets.default = {
     previewSize:34, alphaChannel:false, mode:"HS", format:'rgb',
     borderColor:'#B0B0B0', borderRadius:4, width:248, shadow:false,
     // closeButton:true, closeText:'Set', buttonHeight:38,
-    valueElement:'#color_value', onChange:'onChangeColor(this)'
+    valueElement:'#color_value'
 };
 
 function selected() {

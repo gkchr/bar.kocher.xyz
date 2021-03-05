@@ -1,0 +1,17 @@
+<article class="card">
+    <header>
+        <span class="material-icons">{{ light.icon }}</span>
+    </header>
+    <main>
+        <h5>{{ light.title }}</h5>
+        {% if light.description %}}
+        <p>{{ light.description }}</p>
+        {% endif %}
+    </main>
+    <footer>
+        <label class="select">
+            <input type="checkbox">
+            <span></span>
+        </label>
+    </footer>
+</article>
