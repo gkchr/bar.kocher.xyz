@@ -103,12 +103,31 @@
             <hr/>
 
             <section class="controls">
+                <button id="off" class="material-icons-two-tone">power_settings_new</button>
+                <button id="warmwhite" class="material-icons-two-tone">lightbulb</button>
+                <button id="brightwhite" class="material-icons-two-tone">lightbulb</button>
+
+                <br/>
+
                 <button id="color_picker" class="material-icons-two-tone" data-jscolor="">palette</button>
                 <input type="hidden" name="color_value" id="color_value">
                 <button id="set" class="material-icons-two-tone">format_color_fill</button>
-                <button id="warmwhite" class="material-icons-two-tone">lightbulb</button>
+
                 <br/>
-                <button id="off" class="material-icons-two-tone">power_settings_new</button>
+
+                <select id="effect">
+                    <option value="eff" id="effect_placeholder" disabled>Effect</option>
+                    <option value="None">"-- none --"</option>
+                    <option value="Fireworks">"Fireworks"</option>
+                    <option value="Flicker">"Flicker"</option>
+                    <option value="Rainbow slow">"Rainbow slow"</option>
+                    <option value="Rainbow">"Rainbow"</option>
+                    <option value="Random fast">"Random fast"</option>
+                    <option value="Random slow">"Random slow"</option>
+                    <option value="Random">"Random"</option>
+                    <option value="Scan">"Scan"</option>
+                    <option value="Twinkle">"Twinkle"</option>
+                </select>
             </section>
 
             <hr/>

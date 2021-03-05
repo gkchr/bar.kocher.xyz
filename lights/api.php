@@ -83,8 +83,19 @@ class BarLightAPI {
      * @param $light: the light.
      * @package $color: the color in RGB string format [rgb(rrr,ggg,bbb)].
      */
-    public function switch_color($light, $color) {
-        $this->mqtt_control_light($light, ["effect" => "none", "state" => "on", "color" => $this->color($color)]);
+    public function switch_color($light, $color, $brightness = null) {
+        $this->mqtt_control_light($light, ["effect" => "none", "state" => "on", "color" => $this->color($color), "brightness" => $brightness]);
+    }
+
+
+    /**
+     * Switches a light to a specific effect.
+     *
+     * @param $effect: the effect.
+     * @package $color: the color in RGB string format [rgb(rrr,ggg,bbb)].
+     */
+    public function run_effect($light, $effect, $color, $brightness = null) {
+        $this->mqtt_control_light($light, ["effect" => $effect, "state" => "on", "color" => $this->color($color), "brightness" => $brightness]);
     }
 }
 
@@ -96,5 +107,9 @@ if(isset($_GET["off"])) {
 }
 
 if(isset($_GET["color"])) {
-    $barLightAPI->switch_color($_GET["light"], $_GET["color"]);
+    $barLightAPI->switch_color($_GET["light"], $_GET["color"], $_GET["brightness"] ?? null);
+}
+
+if(isset($_GET["effect"])) {
+    $barLightAPI->run_effect($_GET["light"], $_GET["effect"], $_GET["eff_color"]);
 }
