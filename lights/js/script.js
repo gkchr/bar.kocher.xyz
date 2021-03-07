@@ -7,6 +7,7 @@ jscolor.presets.default = {
 
 function jscolorUpdate(that) {
     $("#set").css("background-color", that.toHEXString());
+    $("#color_picker").css("background-color", that.toHEXString());
 }
 
 function selected() {

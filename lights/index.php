@@ -109,7 +109,7 @@
 
                 <br/>
 
-                <button id="color_picker" class="material-icons-two-tone" data-jscolor="">palette</button>
+                <button id="color_picker1" class="material-icons-two-tone" data-jscolor="">palette</button>
                 <input type="hidden" name="color_value" id="color_value">
                 <button id="set" class="material-icons-two-tone">format_color_fill</button>
 
@@ -130,6 +130,36 @@
                 </select>
             </section>
 
+            <hr/>
+            
+            <section class="ui">
+                <section class="colors">
+                    <button id="off" class="material-icons-two-tone">power_settings_new</button>
+                    <button id="color_picker" class="material-icons-two-tone" data-jscolor="">colorize</button>
+                    <input type="hidden" name="color_value" id="color_value">
+                    <button id="color_presets" class="material-icons-two-tone">palette</button>
+                    <aside id="presets_list">
+                        <button value="rgb(255,255,255)">white</button>
+                        <button value="rgb(100,80,60)">warm</button>
+                        <button value="rgb(255,174,66)">orange</button>
+                    </aside>
+                </section>
+
+                <section class="effects">
+                    <button value="None" class="grey">-- None --</button>
+                    <button value="Fireworks">Fireworks</button>
+                    <button value="Flicker">Flicker</button>
+
+                    <button value="Rainbow slow" class="rainbow">Rainbow slow</button>
+                    <button value="Rainbow" class="rainbow">Rainbow</button>
+                    <button value="Scan">Scan</button>
+
+                    <button value="Random fast">Random fast</button>
+                    <button value="Random">Random</button>
+                    <button value="Random slow">Random slow</button>
+                </section>
+            </section>
+            
             <hr/>
 
             <p class="copyright">by <a href="mailto:gerhard@kocher.xyz">Gerhard Kocher</a> <?php echo date("Y"); ?>. <em>Made with &lt;3</em><br/></p>
