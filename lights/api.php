@@ -73,7 +73,7 @@ class BarLightAPI {
      * @param $light: the light.
      */
     public function turn_off_light($light) {
-        $this->mqtt_control_light($light, ["state" => "off", "effect" => "none", "timestamp" => date("U")]);
+        $this->mqtt_control_light($light, ["state" => "off", "effect" => "none", "brightness" => "200"]);
     }
 
 
@@ -106,10 +106,6 @@ if(isset($_GET["off"])) {
     $barLightAPI->turn_off_light($_GET["off"]);
 }
 
-if(isset($_GET["color"])) {
-    $barLightAPI->switch_color($_GET["light"], $_GET["color"], $_GET["brightness"] ?? null);
-}
-
-if(isset($_GET["effect"])) {
-    $barLightAPI->run_effect($_GET["light"], $_GET["effect"], $_GET["eff_color"]);
+if(isset($_GET["light"])) {
+    $barLightAPI->run_effect($_GET["light"], $_GET["effect"], $_GET["color"], $_GET["brightness"] ?? null);
 }

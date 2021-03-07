@@ -1,0 +1,397 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    font-size: 1.5em;
+    line-height: 1.6;
+    font-weight: 400;
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 30rem; /* 60 */
+    margin: 1rem auto;
+}
+.mobile { display: none; }
+.desktop { display: initial; }
+
+
+@media (max-width: 60rem) { /* small screen */
+    html {
+        font-size: 11px;
+    }
+    body {
+        width: 30rem;
+    }
+    .mobile { display: initial; }
+    .desktop { display: none; }
+}
+
+
+
+h1, h2, h3, h4, h5 {
+    /*margin: 3rem 0 1.38rem;*/
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+h1 { margin-top: 0; font-size: 2.488rem; }
+h2 { font-size: 2.074rem; }
+h3 { font-size: 1.728rem; }
+h4 { font-size: 1.44rem; }
+h5 { font-size: 1.2rem; }
+p { margin-bottom: 1rem; }
+small, .text_small { font-size: 0.833rem; }
+
+
+/***********************************************************************************************************************
+***********************************************************************************************************************
+                    Sizing, flex, main margins, main borders
+ *********************************************************************************************************************
+***********************************************************************************************************************/
+
+main {
+    font-size: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch
+}
+main:after {
+    display: block;
+    content: " placeholder ";
+    margin: 10px;
+    flex: 999 999 auto;
+}
+
+p, button, span {
+    font-size: 1rem;
+}
+
+
+section {
+    width: 100%;
+}
+
+
+.ui section,
+.ui section aside {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: justify;
+    align-content: space-between;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.ui section button,
+.ui section aside button,
+.ui section aside .slidecontainer {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: auto;
+    -ms-flex-item-align: auto;
+    align-self: auto;
+}
+
+.ui section aside {
+    display: none;
+    align-content: center;
+    position: absolute;
+}
+
+button, .two-buttons, .ui input {
+    height: 4rem;
+    margin: 0.5rem;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.ui section > .two-buttons,
+.ui section > button,
+.ui section > input {
+    width: 9rem;
+}
+
+.ui button {
+    /*width: 32.5%;*/
+    padding: 0 0.5rem;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    text-transform: none;
+    letter-spacing: 0.1rem;
+    line-height: 1.1rem;
+}
+
+
+.ui section aside {
+    max-width: 28rem;
+    margin: 3rem 1rem 0;
+}
+.ui section aside button,
+.ui section aside input[type="number"] {
+    width: 8.2rem;
+}
+
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+
+
+/***********************************************************************************************************************
+***********************************************************************************************************************
+                    Styling
+ *********************************************************************************************************************
+***********************************************************************************************************************/
+.card {
+    margin: 0.5rem;
+    padding: 6px 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    min-height: 5rem;
+}
+
+.card header {
+    flex: 0 1 auto;
+    line-height: 1;
+}
+.card label {
+    padding: 0 10px;
+    flex: 1 1 auto;
+}
+.card footer {
+    flex: 0 1 auto;
+    line-height: 1;
+}
+
+.card h5, .card p {margin-bottom: 0}
+.card .material-icons {color: #222;}
+
+.card + .card {margin-top: 10px}
+
+
+
+
+
+.card input[type="radio"] + span,
+.card input[type="checkbox"] + span {
+    color: black;
+    position: relative;
+    display: inline-block;
+}
+
+.card input[type="radio"] + span::before,
+.card input[type="checkbox"] + span::before {
+    /* Outer Circle of radio button */
+    border: 1px solid black;
+    content: ' ';
+    display: inline-block;
+    margin-right: 5px;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 4px;
+    transition: border 0.15s ease-in-out;
+    margin-bottom: -.3rem;
+}
+
+.card input[type="radio"] + span::after,
+.card input[type="checkbox"] + span::after {
+    /* Inner Circle of radio button */
+    content: '\2713';
+    position: absolute;
+    left: 0.3rem;
+    top: -0.6rem;
+    font-size: 3rem;
+    font-weight: bold;
+    -webkit-transform: scale(1, 0);
+    transform: scale(1, 0);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+/* When button is active */
+.card input[type="radio"]:checked + span::after,
+.card input[type="checkbox"]:checked + span::after {
+    display: block;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+
+
+/***********************************************************************************************************************
+***********************************************************************************************************************
+                    Styling
+ *********************************************************************************************************************
+***********************************************************************************************************************/
+hr {
+    width: 100%;
+    height: 0;
+    background-color: black;
+    margin: 1rem 3rem;
+    border: 0 none;
+    border-top: 1px solid black;
+}
+
+
+button {
+    border: 1px solid black;
+    border-radius: 4px;
+    background: white;
+}
+
+input[type="number"] {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+
+.two-buttons {
+    font-size: 0;
+    width: 9rem;
+}
+.two-buttons button {
+    width: 4.5rem;
+    margin: 0;
+}
+button.half:first-of-type { /* first half */
+    border-radius: 4px 0 0 4px;
+    border-right: 0px;
+}
+button.half + button.half { /* second half */
+    border-radius: 0 4px 4px 0;
+}
+
+
+.jscolor-picker-wrap {
+    margin: -1.5rem 0.5rem 0 !important
+}
+.jscolor-picker-border {
+    border: 1px solid black !important;
+    background: #eeeeee !important;
+    border-radius: 4px !important;
+}
+
+
+.ui section aside {
+    border: 1px solid black;
+    background: #eeeeee;
+    border-radius: 4px;
+}
+
+
+#brightness_value {
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 7rem;
+}
+.slidecontainer {
+    width: 28rem;
+    padding: 1rem 0.5rem;
+}
+#brightness_slider {
+    width: 18rem;
+    margin: -0.2rem 0.5rem;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 15px !important;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+}
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+}
+
+
+.ui .rainbow, .ui button[value^="Rainbow"] {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 255, 255, 0.2), rgba(0, 0, 255, 0.2));
+}
+#off {
+    background: black;
+    color: darkred;
+}
+#load {
+    color: grey;
+    background: #eeeeee;
+}
+
+
+#infotext {
+    text-align: center;
+}

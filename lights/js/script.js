@@ -1,6 +1,6 @@
 jscolor.presets.default = {
     previewSize:34, alphaChannel:false, mode:"HS", format:'rgb',
-    borderColor:'#B0B0B0', borderRadius:4, width:248, shadow:false,
+    borderColor:'#000000', borderRadius:4, backgroundColor:'#eeeeee', width:277, shadow:false,
     // closeButton:true, closeText:'Set', buttonHeight:38,
     valueElement:'#color_value', previewElement: null, onChange: 'jscolorUpdate(this)'
 };
@@ -8,39 +8,85 @@ jscolor.presets.default = {
 function jscolorUpdate(that) {
     $("#set").css("background-color", that.toHEXString());
     $("#color_picker").css("background-color", that.toHEXString());
+    $("#color_presets").css("background-color", that.toHEXString());
+    $("#info_color").text(ntc.name(that.toHEXString())[1]);
 }
 
 function selected() {
     return $("input[name='selected']:checked").val();
 }
 
-function getColor(a) {
+function getColor() {
     return $("#color_value").val();
 }
 
 
-// $(".select").on("change", function () {
-//
-// });
+$("#color_picker").on("click", function () {
+    $("#presets_list").hide();
+});
+
+
+$("#color_presets").on("click", function () {
+    $("#presets_list").toggle();
+});
+$("#presets_list button").on("click", function () {
+    let val = $(this).val();
+    $("#color_value").val(val);
+
+    if($(this).data("color")) val = $(this).data("color");
+    $("#color_picker").css("background-color", val);
+    $("#color_presets").css("background-color", val);
+    $("#presets_list").hide();
+
+    $("#info_color").text($(this).data("name"));
+});
+
+
+$("#effects").on("click", function () {
+    $("#effects_list").toggle();
+});
+$("#effects_list button").on("click", function () {
+    let val = $(this).val();
+    $("#effect_selected").val(val);
+    $("#effects_list").hide();
+});
+
+
+$("#brightness").on("click", function () {
+    $("#brightness_setting").toggle();
+});
+
+$("#brightness_slider").on("change", function () {
+    $("#brightness_value").val(this.value);
+});
+$("#brightness_value").on("change", function () {
+    $("#brightness_slider").val(this.value);
+});
+
+$("aside").on("dblclick", function (event) {
+    if(event.target.nodeName !== "INPUT") $(this).hide();
+});
+
+
 
 $("#off").on("click", function () {
-    $.get( "api.php", { off: selected() } );
+    $.get( "api.php", { off: selected(), brightness: $("#brightness_value").val() } );
 });
 
-$("#warmwhite").on("click", function () {
-    $.get( "api.php", { color: 'rgb(100,80,60)', light: selected() } );
+$("#send").on("click", function () {
+    $.get( "api.php", {
+        light: selected(),
+        effect: $("#effect_selected").val(),
+        color: getColor(),
+        brightness: $("#brightness_value").val() * 10 + 55
+    } );
 });
 
-$("#brightwhite").on("click", function () {
-    $.get( "api.php", { color: 'rgb(1,1,1)', light: selected(), brightness: '255' } );
-});
 
-$("#set").on("click", function () {
-    $.get( "api.php", { color: getColor(), light: selected() } );
-});
 
-$("#effect").on("change", function () {
-    $.get( "api.php", { effect: this.value, eff_color: getColor(), light: selected() } );
-    $("#effect_placeholder").text("Effect: " + $(this).val());
-    $(this).val("eff");
+$("body").on("click", function () {
+    $("#info_brightness").text($("#brightness_value").val() + " / 20");
+    // $("#info_color").text(ntc.name(getColor()));
+    $("#info_effect").text($("#effect_selected").val());
+    $("#info_light").text(selected());
 });
