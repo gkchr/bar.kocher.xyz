@@ -1,0 +1,49 @@
+.colorpicker {
+    font-size: 0;
+}
+.colorpicker .row {
+    text-align: center;
+}
+.colorpicker .hex {
+    font-size: 1px; /* base unit */
+    color: transparent; /* base unit */
+    display: inline-block;
+    position: relative;
+    background-color: transparent;
+    width: 2.2em;
+    height: auto;
+    margin-bottom: -0.8em;
+}
+.colorpicker .row:last-of-type .hex {
+    margin-bottom: 0;
+}
+.colorpicker .hex .top {
+    width: 0;
+    border-bottom: 0.7em solid currentColor;
+    border-left: 1.1em solid transparent;
+    border-right: 1.1em solid transparent;
+}
+.colorpicker .hex .middle {
+    width: 2.2em;
+    height: 1.4em;
+    background: currentColor;
+}
+.colorpicker .hex .bottom {
+    width: 0;
+    border-top: 0.7em solid currentColor;
+    border-left: 1.1em solid transparent;
+    border-right: 1.1em solid transparent;
+}
+.colorpicker .hex.selected::after {
+    content: "";
+    position: absolute;
+    width: 2.6em;
+    height: 2.6em;
+    top: -0.05em;
+    left: -0.3em;
+    z-index: 1;
+    border: 0.1em solid black;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
