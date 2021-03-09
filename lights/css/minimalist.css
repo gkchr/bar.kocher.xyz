@@ -4,7 +4,7 @@
 
 
 body {
-    font-size: 1.5em;
+    font-size: 1rem;
     line-height: 1.6;
     font-weight: 400;
     font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -26,6 +26,10 @@ body {
     .desktop { display: none; }
 }
 
+.hidden {
+    display: none !important;
+}
+
 
 
 h1, h2, h3, h4, h5 {
@@ -41,6 +45,28 @@ h4 { font-size: 1.44rem; }
 h5 { font-size: 1.2rem; }
 p { margin-bottom: 1rem; }
 small, .text_small { font-size: 0.833rem; }
+
+
+/***********************************************************************************************************************
+***********************************************************************************************************************
+                    General Styling
+ *********************************************************************************************************************
+***********************************************************************************************************************/
+hr {
+    width: 100%;
+    height: 0;
+    background-color: black;
+    margin: 1rem 3rem;
+    border: 0 none;
+    border-top: 1px solid black;
+}
+
+button {
+    border: 1px solid black;
+    border-radius: 4px;
+    background: white;
+}
+
 
 
 /***********************************************************************************************************************
@@ -117,40 +143,8 @@ section {
     position: absolute;
 }
 
-button, .two-buttons, .ui input {
-    height: 4rem;
-    margin: 0.5rem;
-    padding: 0;
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-.ui section > .two-buttons,
-.ui section > button,
-.ui section > input {
-    width: 9rem;
-}
-
-.ui button {
-    /*width: 32.5%;*/
-    padding: 0 0.5rem;
-    overflow: hidden;
-    white-space: normal;
-    text-overflow: ellipsis;
-    text-transform: none;
-    letter-spacing: 0.1rem;
-    line-height: 1.1rem;
-}
 
 
-.ui section aside {
-    max-width: 28rem;
-    margin: 3rem 1rem 0;
-}
-.ui section aside button,
-.ui section aside input[type="number"] {
-    width: 8.2rem;
-}
 
 
 .material-icons {
@@ -186,12 +180,14 @@ button, .two-buttons, .ui input {
  *********************************************************************************************************************
 ***********************************************************************************************************************/
 .card {
+    position: relative;
     margin: 0.5rem;
     padding: 6px 10px;
     border: 1px solid black;
     border-radius: 4px;
     box-shadow: none;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     min-height: 5rem;
 }
@@ -207,6 +203,10 @@ button, .two-buttons, .ui input {
 .card footer {
     flex: 0 1 auto;
     line-height: 1;
+}
+
+.card .ui {
+    width: 100%;
 }
 
 .card h5, .card p {margin-bottom: 0}
@@ -275,123 +275,114 @@ input[type="checkbox"] {
 
 
 
-/***********************************************************************************************************************
-***********************************************************************************************************************
-                    Styling
- *********************************************************************************************************************
-***********************************************************************************************************************/
-hr {
+.card .ui {
+    font-size: 1.2rem;
+    display: grid;
+    grid-template-columns: 20rem 6rem;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    grid-template-areas:
+            "color buttons"
+            "brightness controls";
+}
+.card:not(.selected) .ui {
+    display: none;
+}
+
+.card .ui button {
+    margin: 0.5rem 0;
     width: 100%;
-    height: 0;
-    background-color: black;
-    margin: 1rem 3rem;
-    border: 0 none;
-    border-top: 1px solid black;
+    height: 3rem;
+    border: 1px grey solid;
 }
-
-
-button {
-    border: 1px solid black;
-    border-radius: 4px;
-    background: white;
-}
-
-input[type="number"] {
-    border: 1px solid black;
-    border-radius: 4px;
-}
-
-
-.two-buttons {
+.card .ui .two-buttons {
     font-size: 0;
     width: 9rem;
 }
-.two-buttons button {
-    width: 4.5rem;
+.card .ui .two-buttons button {
+    width: 3.6rem;
     margin: 0;
 }
-button.half:first-of-type { /* first half */
+.card .ui button.half:first-of-type { /* first half */
     border-radius: 4px 0 0 4px;
     border-right: 0px;
 }
-button.half + button.half { /* second half */
+.card .ui button.half + button.half { /* second half */
     border-radius: 0 4px 4px 0;
 }
 
-
-.jscolor-picker-wrap {
-    margin: -1.5rem 0.5rem 0 !important
-}
-.jscolor-picker-border {
-    border: 1px solid black !important;
-    background: #eeeeee !important;
-    border-radius: 4px !important;
+.card .ui .color .colorpicker .hex {
+    font-size: 11px;
 }
 
+.card .ui .buttons {
+    place-self: center;
+}
 
-.ui section aside {
+.card .ui .buttons button.selected,
+.card .ui button:hover {
     border: 1px solid black;
-    background: #eeeeee;
-    border-radius: 4px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
+.card .ui .buttons button.off { background: dimgrey; }
+.card .ui .buttons button.shine { text-shadow: 0 0 8px white; }
 
-#brightness_value {
-    padding: 1rem;
-    font-size: 1.5rem;
-    width: 7rem;
-}
-.slidecontainer {
-    width: 28rem;
-    padding: 1rem 0.5rem;
-}
-#brightness_slider {
-    width: 18rem;
-    margin: -0.2rem 0.5rem;
+.card .ui .brightness {
 }
 
-.slider {
-    -webkit-appearance: none;
+.card .ui .brightness .slider {
     width: 100%;
-    height: 15px !important;
-    border-radius: 5px;
-    background: #d3d3d3;
+    height: 1em !important;
+    margin: 1rem 0;
+    border-radius: 4px;
+    background: linear-gradient(to right, #222222, #dddddd);
     outline: none;
-    opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
-.slider::-webkit-slider-thumb {
+.card .ui .brightness .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: black;
     cursor: pointer;
-}
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
+    width: 2.6rem;
+    height: 2.6rem;
+    z-index: 1;
+    border: 0.1em solid black;
     border-radius: 50%;
-    background: black;
-    cursor: pointer;
+    background: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
+.card .ui .brightness .slider::-moz-range-thumb {
+    cursor: pointer;
+    width: 2.6rem;
+    height: 2.6rem;
+    z-index: 1;
+    border: 0.1em solid black;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
+
+.card .ui .controls {
+}
+
+.card .ui .controls .mqtt {
+    position: absolute;
+    top: 0;
+    left: calc(50%);
+}
+.card .ui .controls .mqtt button {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0!important;
+    height: 1.2em;
+    font-size: 20px;
+}
+
+
 
 
 .ui .rainbow, .ui button[value^="Rainbow"] {
     background-image: linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(255, 255, 0, 0.2), rgba(0, 255, 0, 0.2), rgba(0, 255, 255, 0.2), rgba(0, 0, 255, 0.2));
-}
-#off {
-    background: black;
-    color: darkred;
-}
-#load {
-    color: grey;
-    background: #eeeeee;
-}
-
-
-#infotext {
-    text-align: center;
 }
