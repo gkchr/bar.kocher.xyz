@@ -30,7 +30,7 @@ class BarLightAPI {
 
 
     private function color($rgb) {
-        preg_match('/rgb\((\d+),(\d+),(\d+)\)/m', $rgb, $colors);
+        preg_match('/rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/m', $rgb, $colors);
         return [
             "r" => $colors[1],
             "g" => $colors[2],
