@@ -319,7 +319,7 @@ input[type="checkbox"] {
     place-self: center;
 }
 
-.card .ui .buttons button.selected,
+.card .ui .buttons button.active,
 .card .ui button:hover {
     border: 1px solid black;
     box-shadow: 1px 1px 3px rgba(0,0,0,0.6);
