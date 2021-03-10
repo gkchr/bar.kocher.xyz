@@ -152,62 +152,6 @@
         </article>
     </section>
 
-    <hr/>
-
-<!--    <section class="ui">-->
-<!--        <section class="settings">-->
-<!--            <input type="hidden" name="color_value" id="color_value">-->
-<!--            <span class="two-buttons">-->
-<!--                <button id="color_picker" class="material-icons-two-tone half" data-jscolor="">colorize</button>-->
-<!--                <button id="color_presets" class="material-icons-two-tone half">palette</button>-->
-<!--            </span>-->
-<!--            <aside id="presets_list">-->
-<!--                <button value="rgb(255,255,255)" data-name="Full White">white</button>-->
-<!--                <button value="rgb(255,204,153)" data-color="#FDF4DC" data-name="Warm White">warm</button>-->
-<!--                <button value="rgb(255,174,66)" data-name="Trusty Orange">orange</button>-->
-<!--            </aside>-->
-<!---->
-<!--            <button id="brightness" class="material-icons-two-tone">brightness_4</button>-->
-<!--            <aside id="brightness_setting">-->
-<!--                <div class="slidecontainer">-->
-<!--                    <input type="range" min="0" max="20" value="17" class="slider" id="brightness_slider">-->
-<!--                    <input type="number" min="0" max="20" id="brightness_value";-->
-<!--                </div>-->
-<!--            </aside>-->
-<!---->
-<!--            <button id="effects" class="material-icons-two-tone">waves</button>-->
-<!--            <input type="hidden" id="effect_selected">-->
-<!--            <aside id="effects_list" class="effects">-->
-<!--                <button value="None" class="grey">-- None --</button>-->
-<!--                <button value="Fireworks">Fireworks</button>-->
-<!--                <button value="Flicker">Flicker</button>-->
-<!--                <button value="Rainbow" class="rainbow">Rainbow</button>-->
-<!--                <button value="Rainbow slow" class="rainbow">Rainbow slow</button>-->
-<!--                <button value="Random">Random</button>-->
-<!--                <button value="Random fast">Random fast</button>-->
-<!--                <button value="Random slow">Random slow</button>-->
-<!--                <button value="Scan">Scan</button>-->
-<!--            </aside>-->
-<!--        </section>-->
-<!---->
-<!--        <p id="infotext">-->
-<!--            Light: "<span id="info_light"></span>":-->
-<!--            Color: <span id="info_color"></span>,<br/>-->
-<!--            Effect: <span id="info_effect"></span>,-->
-<!--            Brightness: <span id="info_brightness"></span></p>-->
-<!---->
-<!--        <section class="controls">-->
-<!--            <button id="off" class="material-icons-two-tone">power_settings_new</button>-->
-<!--            <button id="send" class="material-icons-two-tone">cloud_upload</button>-->
-<!--            <button id="load" class="material-icons-two-tone" disabled="">download</button>-->
-<!--        </section>-->
-<!---->
-<!---->
-<!---->
-<!--    </section>-->
-
-    <hr/>
-
     <p class="copyright">by <a href="mailto:gerhard@kocher.xyz">Gerhard Kocher</a> <?php echo date("Y"); ?>. <em>Made with &lt;3</em><br/></p>
 
 
