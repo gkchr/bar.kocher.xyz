@@ -28,6 +28,7 @@ class BarLightUI {
         this.brightnessSelector.on("change", el => this.brightnessSelectorHandler(el));
 
         this.settings = {
+            light: this.root.find(".selector").val(),
             color: "rgb(255,255,255)",
             brightness: this.brightnessSelector.val(),
             effect: "none",
@@ -54,20 +55,36 @@ class BarLightUI {
         this.send();
     }
 
-    offButtonHandler() {
+    /**
+     * Handler functions for the three buttons.
+     */
+    offButtonHandler(ev) {
         this.settings.state = "off";
         this.send();
+        this.buttonUiSetActive(ev.target);
     }
-
-    shineButtonHandler() {
+    shineButtonHandler(ev) {
         this.settings.state = "on";
         this.settings.effect = "none";
         this.send();
+        this.buttonUiSetActive(ev.target);
+    }
+    effectsButtonHandler(ev) {
+        // this.showEffectsOverlay();
+        this.buttonUiSetActive(ev.target);
     }
 
-    effectsButtonHandler(element) {
-        console.log(element);
-        // this.showEffectsOverlay();
+
+    /**
+     * User interface function for the button states.
+     * @param element
+     */
+    buttonUiSetActive(btn) {
+        btn = $(btn);
+        if(btn.hasClass("active")) return;
+
+        this.root.find(".buttons button.active").removeClass("active");
+        btn.addClass("active");
     }
 
     brightnessSelectorHandler(element) {
@@ -85,8 +102,13 @@ class BarLightUI {
         this.send();
     }
 
+
+    /**
+     * send the command to mqtt using the provided api.
+     */
     send() {
         console.log(this.settings);
+        $.get("api.php", this.settings);
     }
 }
 
